@@ -2,11 +2,12 @@ const express = require('express');
 const brainTreeRouter = express.Router();
 const customerRouter = express.Router();
 const braintree = require("braintree");
+const storage = require("../secure_storage");
 const gateway = braintree.connect({
   environment: braintree.Environment.Sandbox,
   merchantId: "t6g7rvhyyy4vkhyw",
   publicKey: "vnms8mms3vx7jx38",
-  privateKey: "45275358e65a702f98b64c37a21f57a5"
+  privateKey: storage.braintreePrivateKey
 });
 
 /* GET token. */
